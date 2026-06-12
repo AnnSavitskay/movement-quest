@@ -2,12 +2,23 @@ import { useState }
 from "react";
 import axios from "axios";
 
-function ActivityForm() {
+import DashboardCards
+from "./DashboardCards";
 
-  const [activity,
-    setActivity] =
-      useState("walking");
+import MoodChart
+from "./MoodChart";
 
+import ChallengeCard
+from "./ChallengeCard";
+
+import StreakCard
+from "./StreakCard";
+
+function ActivityForm({
+  activities,
+  setActivities
+}) {
+  const [activity, setActivity] = useState("walking");  
   const [duration,
     setDuration] =
       useState(15);
@@ -20,7 +31,7 @@ function ActivityForm() {
     setMoodAfter] =
       useState(5);
       
-  async function saveActivity() {
+  async function saveActivities() {
 
   await axios.post(
     "http://127.0.0.1:5000/activities",
@@ -39,6 +50,14 @@ function ActivityForm() {
   alert(
     "Activity saved!"
   );
+	  const response =
+	  await axios.get(
+	    "http://127.0.0.1:5000/activities"
+	  );
+
+	setActivities(
+	  response.data
+	);
 }
 
   return (
@@ -119,12 +138,25 @@ function ActivityForm() {
       <br />
 
       <button
-	  onClick={saveActivity}
+	  onClick={saveActivities}
 	>
 	  Save Activity
 	</button>
+	
+	<DashboardCards
+		  activities={activities}
+		/>
 
-    </div>
+		<MoodChart
+		  activities={activities}
+		/>
+
+		<StreakCard
+		  activities={activities}
+		/>
+
+	  <ChallengeCard />
+	</div>
 
   );
 }

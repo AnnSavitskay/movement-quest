@@ -5,11 +5,10 @@ from "react";
 import axios
 from "axios";
 
-function ActivityTable() {
-
-  const [activities,
-    setActivities] =
-      useState([]);
+function ActivityTable({
+  activities,
+  setActivities
+}) {
 
   useEffect(() => {
 
@@ -57,15 +56,9 @@ function ActivityTable() {
 
       </thead>
 
-      <tbody>
-
-        {
-          activities.map(
-            activity => (
-
-              <tr
-                key={activity.id}
-              >
+     <tbody>
+  {Array.isArray(activities) && activities.map(activity => (
+    <tr key={activity.id}>
 
                 <td>
                   {activity.activity}

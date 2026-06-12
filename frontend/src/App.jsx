@@ -1,24 +1,30 @@
-import ActivityForm
-from "./components/ActivityForm";
-import ActivityTable
-from "./components/ActivityTable";
+import { useState } from "react";
+
+import ActivityForm from "./components/ActivityForm";
+import ActivityTable from "./components/ActivityTable";
 
 function App() {
 
-  return (
+  const [activities, setActivities] = useState([]);
 
+  return (
     <div>
 
       <h1>
         Movement Quest
       </h1>
 
-      <ActivityForm />
+      <ActivityForm
+        activities={activities}
+        setActivities={setActivities}
+      />
 
-	<ActivityTable />
+      <ActivityTable
+        activities={activities}
+        setActivities={setActivities}
+      />
 
     </div>
-
   );
 }
 
