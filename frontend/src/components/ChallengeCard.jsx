@@ -17,13 +17,7 @@ function ChallengeCard() {
     ];
 
   return (
-    <div
-      style={{
-        background: "#f8fff8",
-        padding: "20px",
-        borderRadius: "12px"
-      }}
-    >
+    <div className="challenge-card">
       <h3>
         🎯 Daily Challenge
       </h3>

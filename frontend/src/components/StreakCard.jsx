@@ -15,7 +15,7 @@ function StreakCard({ activities }) {
   }
 
   return (
-    <div style={{ background: "#fff7e6", padding: "20px", borderRadius: "12px" }}>
+    <div className="streak-card">
       <h3>🔥 Current Streak</h3>
       <h2>{calcStreak(activities)} days</h2>
     </div>

@@ -18,22 +18,10 @@ function MoodChart({ activities }) {
       after: a.mood_after
     }));
 
-  if (!activities.length) return <div style={{background: "white",
-        padding: "20px",
-        borderRadius: "12px",
-        boxShadow:
-          "0 2px 8px rgba(0,0,0,0.1)"}}>No data yet</div>;
+  if (!activities.length) return <div className="card">No data yet</div>;
   return (
-    <div
-      style={{
-        background: "white",
-        padding: "20px",
-        borderRadius: "12px",
-        boxShadow:
-          "0 2px 8px rgba(0,0,0,0.1)"
-      }}
-    >
-      <h3>Mood Before vs After</h3>
+    <div className="card">
+  <h2>📈 Mood Before vs After</h2>
 
       <ResponsiveContainer
         width="100%"
@@ -48,15 +36,8 @@ function MoodChart({ activities }) {
 
           <Tooltip />
 
-          <Line
-            type="monotone"
-            dataKey="before"
-          />
-
-          <Line
-            type="monotone"
-            dataKey="after"
-          />
+           <Line type="monotone" dataKey="before" stroke="#ef9a9a" strokeWidth={2} dot={{ r: 4 }} name="Before" />
+  		<Line type="monotone" dataKey="after"  stroke="#66bb6a" strokeWidth={2} dot={{ r: 4 }} name="After" />
         </LineChart>
       </ResponsiveContainer>
     </div>

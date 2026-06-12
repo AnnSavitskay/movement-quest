@@ -16,24 +16,17 @@ function DashboardCards({ activities }) {
       : 0;
   
   return (
-    <div
-      style={{
-        display: "flex",
-        gap: "20px",
-        marginBottom: "30px"
-      }}
-    >
-      <StatCard
-        title="Activities"
-        value={totalActivities}
-      />
-
-      <StatCard
-        title="Mood Gain"
-        value={`+${avgMoodGain}`}
-      />
+  <div className="dashboard-grid" style={{ marginTop: "1.5rem" }}>
+    <div className="stat-card">
+      <h4>🏃 Activities</h4>
+      <h2>{totalActivities}</h2>
     </div>
-  );
+    <div className="stat-card">
+      <h4>😊 Mood Gain</h4>
+      <h2>+{avgMoodGain}</h2>
+    </div>
+  </div>
+);
 }
 
 function StatCard({ title, value }) {

@@ -61,104 +61,36 @@ function ActivityForm({
 }
 
   return (
-
-    <div>
-
-      <h2>
-        Log Activity
-      </h2>
-
-      <select
-        value={activity}
-        onChange={(e)=>
-          setActivity(
-            e.target.value
-          )
-        }
-      >
-
-        <option>
-          walking
-        </option>
-
-        <option>
-          cycling
-        </option>
-
-        <option>
-          swimming
-        </option>
-
-        <option>
-          stretching
-        </option>
-
+  <div className="card">
+    <h2>🌿 Log Activity</h2>
+    <div className="form-group">
+      <label>Activity type</label>
+      <select value={activity} onChange={(e) => setActivity(e.target.value)}>
+        <option value="walking">🚶 Walking</option>
+        <option value="cycling">🚴 Cycling</option>
+        <option value="swimming">🏊 Swimming</option>
+        <option value="stretching">🧘 Stretching</option>
       </select>
-
-      <br />
-
-      <input
-        type="number"
-        value={duration}
-        onChange={(e)=>
-          setDuration(
-            e.target.value
-          )
-        }
-      />
-
-      <br />
-
-      <input
-        type="number"
-        min="1"
-        max="10"
-        value={moodBefore}
-        onChange={(e)=>
-          setMoodBefore(
-            e.target.value
-          )
-        }
-      />
-
-      <br />
-
-      <input
-        type="number"
-        min="1"
-        max="10"
-        value={moodAfter}
-        onChange={(e)=>
-          setMoodAfter(
-            e.target.value
-          )
-        }
-      />
-
-      <br />
-
-      <button
-	  onClick={saveActivities}
-	>
-	  Save Activity
-	</button>
-	
-	<DashboardCards
-		  activities={activities}
-		/>
-
-		<MoodChart
-		  activities={activities}
-		/>
-
-		<StreakCard
-		  activities={activities}
-		/>
-
-	  <ChallengeCard />
-	</div>
-
-  );
+    </div>
+    <div className="form-group">
+      <label>Duration (minutes)</label>
+      <input type="number" value={duration} onChange={(e) => setDuration(e.target.value)} />
+    </div>
+    <div className="form-group">
+      <label>Mood before (1–10)</label>
+      <input type="number" min="1" max="10" value={moodBefore} onChange={(e) => setMoodBefore(e.target.value)} />
+    </div>
+    <div className="form-group">
+      <label>Mood after (1–10)</label>
+      <input type="number" min="1" max="10" value={moodAfter} onChange={(e) => setMoodAfter(e.target.value)} />
+    </div>
+    <button className="save-btn" onClick={saveActivities}>Save Activity</button>
+    <DashboardCards activities={activities} />
+    <MoodChart activities={activities} />
+    <StreakCard activities={activities} />
+    <ChallengeCard />
+  </div>
+);
 }
 
 export default ActivityForm;

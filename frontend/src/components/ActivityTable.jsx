@@ -29,8 +29,10 @@ function ActivityTable({
   }
 
   return (
-
-    <table>
+  <div className="card">
+    <h2>📋 Activity Log</h2>
+    <div className="table-wrapper">
+      <table>
 
       <thead>
 
@@ -82,8 +84,9 @@ function ActivityTable({
         }
 
       </tbody>
-
     </table>
+    </div>
+      </div>
   );
 }
 
